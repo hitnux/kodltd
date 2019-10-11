@@ -21,20 +21,17 @@
 <link rel="apple-touch-icon" sizes="72x72" href="" />
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 <title>Hamu</title>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
     <div id="app">
-        <layout>
-            <div class="left">
-        <img src="http://chart.apis.google.com/chart?cht=qr&chs=230x230&choe=UTF-8&chl=http://halilbilgin.com" id="qr">
-            </div>
-            <div class="right">
+        <window>
+            <img src="http://chart.apis.google.com/chart?cht=qr&chs=230x230&choe=UTF-8&chl=http://halilbilgin.com" id="qr">
             <img src="https://checkology.org/assets/img/register/button/GoogleSignUpDark.png" id="googleLogin">
-            </div>
-        </layout>
+        </window>
     </div>
     <script>
         Vue.component('todo-item', {
@@ -42,6 +39,9 @@
         });
         Vue.component('layout', {
             template: '<div class="layout"><slot></slot></div>' 
+        });
+         Vue.component('window', {
+            template: '<div class="window"><div class="window__close">X</div><slot></slot></div>' 
         });
         var app = new Vue({
             el: '#app',
