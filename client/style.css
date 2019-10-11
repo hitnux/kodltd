@@ -36,7 +36,7 @@ body{
   height: 250px;
   width: 250px;
 }
-.footer{
+.vfooter{
   position: fixed;
   bottom: 0;
   width: 100vw;
