@@ -35,6 +35,7 @@
             <img src="http://chart.apis.google.com/chart?cht=qr&chs=230x230&choe=UTF-8&chl=http://halilbilgin.com" id="qr">
             <img src="https://checkology.org/assets/img/register/button/GoogleSignUpDark.png" id="googleLogin">
         </window>
+    <vfooter>Version prototype Pre-Alpha 0.1</vfooter>
     </div>
     <script>
         Vue.component('todo-item', {
@@ -48,6 +49,9 @@
         });
         Vue.component('navbar', {
             template: '<vs-navbar v-model="activeItem" class="nabarx"><div slot="title"><vs-navbar-title>Hello world</vs-navbar-title></div><vs-navbar-item index="0"><a href="#">Home</a></vs-navbar-item><vs-navbar-item index="1"><a href="#">News</a></vs-navbar-item><vs-navbar-item index="2"><a href="#">Update</a></vs-navbar-item></vs-navbar>' 
+        });
+         Vue.component('vfooter', {
+            template: '<div class="footer"><slot></slot></div>' 
         });
         var app = new Vue({
             el: '#app',

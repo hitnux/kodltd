@@ -8,7 +8,6 @@ body{
   background: #607D8B;
   width: 480px;
   position: relative;
-  z-index: 10;
   margin:25vh auto;
   box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
 }
@@ -36,6 +35,14 @@ body{
 #qr{
   height: 250px;
   width: 250px;
+}
+.footer{
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
 }
 @media only screen and (max-width:480px){
   .window{
