@@ -11,14 +11,6 @@ body{
   margin:25vh auto;
   box-shadow: 0px 0px 5px 1px rgba(0,0,0,0.75);
 }
-.window__close{
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  border-radius: 50%;
-  font-size: 13px;
-  color: white;
-}
 .layout{
   position: absolute;
   top:0;
