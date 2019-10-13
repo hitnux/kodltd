@@ -33,6 +33,10 @@ export default {
 <style scoped>
   .media{
     justify-content: center;
+    padding: 15px;
+  }
+  .media-content{
+    margin-left: 1rem;
   }
   #title h2{
     margin:0;

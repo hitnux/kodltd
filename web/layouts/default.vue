@@ -5,9 +5,7 @@
           {{item.title}}
       </b-navbar-item>
     </Navbar>
-    <Container>
-        <nuxt />
-    </Container>
+    <nuxt />
     <footer class="footer">
       <div class="content has-text-centered">
         <p>
@@ -20,12 +18,10 @@
 
 <script>
 import Navbar from '~/components/Navbar'
-import Container from '~/components/Container'
 import Style from '~/assets/Style'
 export default {
   components: {
-    Navbar,
-    Container
+    Navbar
   },
   data () {
     return {
