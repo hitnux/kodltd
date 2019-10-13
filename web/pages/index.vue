@@ -36,6 +36,11 @@
       >
         No other internal dependency
       </card>
+      <card
+        title="Lightweight"
+      > 
+      <qr-code :text=url ></qr-code>
+      </card>
     </div>
   </section>
 </template>
@@ -45,9 +50,15 @@ import Card from '~/components/Card'
 
 export default {
   name: 'HomePage',
-
+  data () {
+    return {
+      url: "test",
+    }
+  },
   components: {
     Card
+  },
+  created(){
   }
 }
 </script>
