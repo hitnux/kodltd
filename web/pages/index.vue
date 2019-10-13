@@ -3,6 +3,8 @@
     <div class="columns">
       <Card>
         <qr-code :text=url slot="QR"></qr-code>
+        <h2 slot="title">Hamurabi</h2>
+        <p slot="content">İçerikler</p>
       </Card>
     </div>
   </section>

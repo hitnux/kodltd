@@ -21,6 +21,7 @@
 <script>
 import Navbar from '~/components/Navbar'
 import Container from '~/components/Container'
+import Style from '~/assets/Style'
 export default {
   components: {
     Navbar,

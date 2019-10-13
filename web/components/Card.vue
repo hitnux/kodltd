@@ -7,10 +7,9 @@
     </figure>
     <div class="media-content">
       <div class="content">
-        <p>
-          <strong>John Smith</strong>
+        <p><strong id="title"><slot name="title"></slot></strong>
           <br>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+          <slot name="content"></slot>
         </p>
       </div>
     </div>
@@ -34,6 +33,9 @@ export default {
 <style scoped>
   .media{
     justify-content: center;
+  }
+  #title h2{
+    margin:0;
   }
   @media screen and (max-width: 480px) {
     .media{
