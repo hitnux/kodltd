@@ -13,7 +13,7 @@
       </div>
     </Container>
   </section>
-  <div style="background: #0F77EA;padding:25px;">
+  <div style="background: #34495E;padding:75px;">
       <figure class="image">
           <img src="~/assets/video.png" style="height:315px;width:560px;margin: auto;">
         </figure>
