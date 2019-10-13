@@ -8,6 +8,13 @@
     <Container>
         <nuxt />
     </Container>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <strong>Hamurabi</strong> Pre-Alpha
+        </p>
+      </div>
+    </footer>
   </div>
 </template>
 
