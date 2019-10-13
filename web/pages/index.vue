@@ -25,7 +25,7 @@ export default {
   name: 'HomePage',
   data () {
     return {
-      url: "test",
+      url: "https://buefy.org",
     }
   },
   components: {
