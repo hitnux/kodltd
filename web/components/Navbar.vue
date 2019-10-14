@@ -33,7 +33,6 @@
 </template>
 <style scoped>
     .navbar{
-        padding-right: 64px;
-        padding-left: 64px;
+        padding: 10px 64px;
     }
 </style>
