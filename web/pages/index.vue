@@ -1,30 +1,30 @@
 <template>
 <div>
   <section class="section">
+    <PageHeader>
+      <div id="QrLayout" slot="left">
+        <qr-code :text=url :size="250" color="#34495e" bg-color="white" id="qrcode"></qr-code>
+        <b-button 
+            id="refresh"
+            type="is-info"
+            icon-left="refresh"
+            v-on:click="Generate"
+            class="has-text-centered">
+        </b-button>
+      </div>
+      <div slot="right" style="display:flex;flex-direction:column;align-items:center;">
+        <h1 style="text-align:center">Hamurabi <br>Projesi</h1>
+        <p style="font-size:22px;text-align:center;">Yapım Aşaması: <b>Pre-Alpha Sürümü</b> Version 0.1<br>Nuxt JS, Vue JS, CSS, JS</p>
+      </div>
+    </PageHeader>
     <Container>
       <div class="columns">
-        <b-button 
+        <!--<b-button 
                 type="is-info"
                 class="has-text-centered"
                 tag="router-link"
                 :to="{ name: 'inspire', params: { id: 1234 } }">
-            </b-button>
-        <Card>
-          <div slot="QR" style="display: flex; flex-direction: column;justify-content:center;position: relative;">
-          <qr-code :text=url :size="250" color="#34495e" bg-color="white" id="qrcode"></qr-code>
-          <b-button 
-                id="refresh"
-                type="is-info"
-                icon-left="refresh"
-                v-on:click="Generate"
-                class="has-text-centered">
-            </b-button>
-          </div>
-          <h2 slot="title">Hamurabi</h2>
-          <p slot="content">
-            İçerikler "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-          </p>
-        </Card>
+            </b-button>-->
       </div>
     </Container>
   </section>
@@ -37,8 +37,8 @@
 </template>
 
 <script>
-import Card from '~/components/Card'
 import Container from '~/components/Container'
+import PageHeader from '~/components/PageHeader'
 
 export default {
   name: 'HomePage',
@@ -49,8 +49,8 @@ export default {
     }
   },
   components: {
-    Card,
-    Container
+    Container,
+    PageHeader
   },
   methods:{
     Generate: function(event){
@@ -63,6 +63,12 @@ export default {
 }
 </script>
 <style>
+#QrLayout{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  position: relative;
+}
 #refresh{
   font-size: 50px;
   width: 150px;

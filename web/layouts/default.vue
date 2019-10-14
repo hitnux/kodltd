@@ -19,6 +19,7 @@
 <script>
 import Navbar from '~/components/Navbar'
 import Style from '~/assets/Style'
+
 export default {
   components: {
     Navbar
