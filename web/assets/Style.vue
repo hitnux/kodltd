@@ -7,8 +7,8 @@ h1{
     font-size: 3rem;
     font-weight: bolder;
     color: #252A2D;
-    line-height: 4rem;
-    margin: 12px;
+    line-height: 3.7rem;
+    margin: 5px 0px 15px;
 }
 h2{	
     font-size: 2.5rem;
@@ -37,6 +37,9 @@ h6{
 }
 a{
     color:  #0F77EA;
+}
+p{
+    margin: 5px 0px 15px;
 }
 </style>
 <style lang="scss">
