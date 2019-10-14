@@ -13,3 +13,18 @@
     </h3>
   </section>
 </template>
+<script>
+import index from '~/pages/index'
+
+export default {
+  data () {
+    return {
+        id: "",
+    }
+  },
+  created() {
+      this.id = this.$route.params.id;
+      console.log(this.id);
+  },
+}
+</script>

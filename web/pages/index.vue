@@ -3,9 +3,15 @@
   <section class="section">
     <Container>
       <div class="columns">
+        <b-button 
+                type="is-info"
+                class="has-text-centered"
+                tag="router-link"
+                :to="{ name: 'inspire', params: { id: 1234 } }">
+            </b-button>
         <Card>
           <div slot="QR" style="display: flex; flex-direction: column;justify-content:center;position: relative;">
-          <qr-code :text=url :size="250" color="#34495e" id="qrcode"></qr-code>
+          <qr-code :text=url :size="250" color="#34495e" bg-color="white" id="qrcode"></qr-code>
           <b-button 
                 id="refresh"
                 type="is-info"
@@ -52,6 +58,7 @@ export default {
     }
   },
   created(){
+    console.log("test et");
   }
 }
 </script>
