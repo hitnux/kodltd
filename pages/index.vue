@@ -2,10 +2,7 @@
 <div>
   <section class="section">
     <PageHeader>
-      <div id="QrLayout" slot="left">
-        <qr-code :text=url :size="250" color="#34495e" bg-color="white" id="qrcode"></qr-code>
-      </div>
-      <div slot="right" style="display:flex;flex-direction:column;align-items:center;">
+      <div slot="left" style="display:flex;flex-direction:column;align-items:center;">
         <h1 style="text-align:center">Hamurabi <br>Projesi</h1>
         <p style="font-size:22px;text-align:center;">Yapım Aşaması: <b>Pre-Alpha Sürümü</b> Version 0.1<br>Nuxt JS, Vue JS, CSS, JS</p>
         <b-button 
@@ -17,6 +14,9 @@
             style="border-radius:25px;">
             Bize kahve ısmarla
         </b-button>
+      </div>
+      <div id="QrLayout" slot="right">
+        <qr-code :text=url :size="250" color="#34495e" bg-color="white" id="qrcode"></qr-code>
       </div>
     </PageHeader>
     <Container>
@@ -67,7 +67,6 @@ export default {
 <style>
 #QrLayout{
   display: flex;
-  flex-direction: column;
   justify-content:center;
 }
 #refresh{
