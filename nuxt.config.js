@@ -28,7 +28,8 @@ module.exports = {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/qrcode'
+    '~/plugins/qrcode',
+    '~/plugins/soket'
   ],
   /*
   ** Nuxt.js dev-modules
