@@ -38,5 +38,6 @@ export default {
   .pageHeader{
       min-height: 70vh;
       align-items: center;
+      justify-content: space-between;
   }
 </style>

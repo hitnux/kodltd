@@ -9,7 +9,7 @@
         position: relative;
         display: flex;
         flex-direction: column;
-        max-width: 1024px;
+        max-width: 1299px;
         padding: 7px 0px;
     }
 </style>

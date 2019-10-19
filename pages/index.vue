@@ -31,16 +31,25 @@
     </Container>
   </section>
   <div style="background: #34495E;padding:75px;">
-      <figure class="image">
-          <img src="~/assets/video.png" style="height:315px;width:560px;margin: auto;">
-        </figure>
-    </div>
+    <figure class="image">
+        <img src="~/assets/video.png" style="height:315px;width:560px;margin: auto;">
+      </figure>
+  </div>
+  <Service :src="require('~/assets/video.png')">
+      <h1>Gizlilik dostu</h1>
+İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.
+  </Service>
+  <Service :src="require('~/assets/video.png')" reverse="true">
+      <h1>Gizlilik dostu</h1>
+İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.
+  </Service>
 </div>
 </template>
 
 <script>
 import Container from '~/components/Container'
 import PageHeader from '~/components/PageHeader'
+import Service from '~/components/Service'
 
 export default {
   name: 'HomePage',
@@ -54,7 +63,8 @@ export default {
   },
   components: {
     Container,
-    PageHeader
+    PageHeader,
+    Service
   },
   methods:{
     Generate: function(event){

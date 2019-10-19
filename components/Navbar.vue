@@ -31,6 +31,11 @@
         </template>
     </b-navbar>
 </template>
+<script>
+export default {
+    name: "Navbar",
+}
+</script>
 <style scoped>
     .navbar{
         padding: 10px 64px;

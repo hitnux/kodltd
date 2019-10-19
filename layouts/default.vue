@@ -29,14 +29,14 @@ export default {
       showNavbar: true,
       items: [
         {
-          title: 'Inspire',
+          title: 'Receiver',
           icon: 'lightbulb',
-          to: { name: 'inspire' } 
+          to: { name: 'receiver' } 
         },
         {
-          title: 'Test',
+          title: 'Sender',
           icon: 'account',
-          to: { name: 'test' }
+          to: { name: 'sender' }
         }
       ]
     }
