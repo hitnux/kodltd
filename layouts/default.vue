@@ -6,23 +6,19 @@
       </b-navbar-item>
     </Navbar>
     <nuxt />
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <p>
-          <strong>Hamurabi</strong> Pre-Alpha
-        </p>
-      </div>
-    </footer>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import Navbar from '~/components/Navbar'
+import Footer from '~/components/Footer'
 import Style from '~/assets/Style'
 
 export default {
   components: {
-    Navbar
+    Navbar,
+    Footer
   },
   data () {
     return {

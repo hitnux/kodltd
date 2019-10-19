@@ -43,6 +43,8 @@
       <h1>Gizlilik dostu</h1>
 İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.
   </Service>
+  <Reviews>
+  </Reviews>
 </div>
 </template>
 
@@ -50,6 +52,7 @@
 import Container from '~/components/Container'
 import PageHeader from '~/components/PageHeader'
 import Service from '~/components/Service'
+import Reviews from '~/components/Reviews'
 
 export default {
   name: 'HomePage',
@@ -64,7 +67,8 @@ export default {
   components: {
     Container,
     PageHeader,
-    Service
+    Service,
+    Reviews
   },
   methods:{
     Generate: function(event){
