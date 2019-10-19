@@ -23,7 +23,10 @@
                     </ul>
                 </div>
                 <div class="footer__bottom">
-                    Tüm hakları saklıdır
+                    <h5>Tüm hakları saklıdır</h5>
+                    <div class="footer__language">
+                        <h5>Türkçe</h5>
+                    </div>
                 </div>
             </div>
       </Container>
@@ -57,7 +60,7 @@ export default {
 </script>
 <style>
 .footer{
-    border-top: solid 1px rgba(0,0,0,0.1);
+    border-top: solid 1px rgba(0,0,0,0.05);
     padding: 64px 24px 24px;
     font-size: 1em;
 }
@@ -74,6 +77,8 @@ export default {
     min-width: 200px;
 }
 .footer__bottom{
+    display: flex;
+    justify-content: space-between;
     margin-top: 64px;
 }
 </style>
