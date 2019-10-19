@@ -1,13 +1,40 @@
 <template>
     <div class="reviews columns">
         <div class="column">
-            Test
+            <div class="card card-shadow">
+                <div class="card-content">
+                    <p class="title">
+                    “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
+                    </p>
+                    <p class="subtitle">
+                    Jeff Atwood
+                    </p>
+                </div>
+            </div>
+        </div>
+       <div class="column">
+            <div class="card card-shadow">
+                <div class="card-content">
+                    <p class="title">
+                    “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
+                    </p>
+                    <p class="subtitle">
+                    Jeff Atwood
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="column">
-            Test
-        </div>
-        <div class="column">
-            Test
+            <div class="card card-shadow">
+                <div class="card-content">
+                    <p class="title">
+                    “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
+                    </p>
+                    <p class="subtitle">
+                    Jeff Atwood
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -37,6 +64,17 @@ export default {
 </script>
 <style>
 .reviews{
+    margin: auto;
+    max-width:93vw;
     padding: 64px 24px;
+}
+.card .title{
+    font-size: 1.4rem;
+}
+.card .subtitle{
+    font-size: 1.2rem;
+}
+.card-shadow{
+    box-shadow: 0 0.5em 1em -0.125em rgba(0,0,0, 0.1), 0 0px 0 1px rgba(0,0,0, 0.02);
 }
 </style>
