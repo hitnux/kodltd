@@ -46,7 +46,7 @@ export default {
 </script>
 <style>
 .service{
-    padding: 64px 0px;
+    padding: 32px 0px;
 }
 .reverse{
     flex-direction: row-reverse;
