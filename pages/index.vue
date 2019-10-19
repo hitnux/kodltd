@@ -30,7 +30,7 @@
       </div>
     </Container>
   </section>
-  <div style="background: #34495E;padding:75px;">
+  <div style="background: #34495E;padding:75px;margin-bottom:32px;">
     <figure class="image">
         <img src="~/assets/video.png" style="height:315px;width:560px;margin: auto;">
       </figure>
