@@ -2,19 +2,29 @@
     <footer class="footer">
         <Container>
             <div class="content">
-            <p>
-                <strong>Hamurabi</strong> Pre-Alpha
-            </p>
-            <div class="footer__rows">
-                <ul class="footer__menu" style="margin:1em 0;">
-                    <li>Test</li>
-                    <li>Test</li>
-                    <li>Test</li>
-                </ul>
-                <div>
-                    Test
+                <h2 style="margin-bottom:64px;"><strong>Hamurabi</strong> Pre-Alpha</h2>
+                <div class="footer__rows">
+                    <div class="footer__row">
+                        <ul class="footer__menu" style="margin:1em 0;">
+                            <li>Test</li>
+                            <li>Test</li>
+                            <li>Test</li>
+                        </ul>
+                        <ul class="footer__menu" style="margin:1em 0;">
+                            <li>Test</li>
+                            <li>Test</li>
+                            <li>Test</li>
+                        </ul>
+                    </div>
+                    <ul class="footer__menu" style="margin:1em 0;">
+                        <li>Test</li>
+                        <li>Test</li>
+                        <li>Test</li>
+                    </ul>
                 </div>
-            </div>
+                <div class="footer__bottom">
+                    Tüm hakları saklıdır
+                </div>
             </div>
       </Container>
     </footer>
@@ -48,14 +58,22 @@ export default {
 <style>
 .footer{
     border-top: solid 1px rgba(0,0,0,0.1);
-    padding: 64px 24px;
+    padding: 64px 24px 24px;
     font-size: 1em;
 }
 .footer__rows{
     display: flex;
     justify-content: space-between;
 }
+.footer__row{
+    display: flex;
+    justify-content: space-between;
+}
 .footer__menu li{
     list-style-type: none;
+    min-width: 200px;
+}
+.footer__bottom{
+    margin-top: 64px;
 }
 </style>
