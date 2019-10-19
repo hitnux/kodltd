@@ -66,7 +66,7 @@ export default {
 .reviews{
     margin: auto;
     max-width:93vw;
-    padding: 32px 24px 100px;
+    padding: var(--margin) 24px 150px;
 }
 .card .title{
     font-size: 1.4rem;

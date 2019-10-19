@@ -1,4 +1,7 @@
 <style>
+:root{
+    --margin: 42px;
+}
 .is-primary{
     color:#34495E;
 }
