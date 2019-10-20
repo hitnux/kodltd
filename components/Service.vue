@@ -62,4 +62,9 @@ export default {
     flex-direction: column;
     justify-content: center;
 }
+@media screen and (max-width:480px) {
+    .service{
+        margin: 12px;
+    }
+}
 </style>
