@@ -4,7 +4,7 @@
             <div slot="left">
                 Yapım Aşaması: <b>Pre-Alpha Sürümü</b> Version 0.1<br>Nuxt JS, Vue JS, CSS, JS
             </div>
-            <div slot="right" style="display: flex; justify-content: center;">
+            <div slot="right" style="display: flex; justify-content: center;align-items:center;margin:150px auto 75px;">
                <Dog/>
             </div>
         </PageHeader>

@@ -39,73 +39,8 @@ $interval: 200ms;
 $color-gray: #EAEBEC;
 $easing: ease-in-out;
 
-.ball {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  margin-top: 4rem;
-  z-index: 0;
-  
-  &:after {
-    content: '';
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    border-radius: 50%;
-    box-shadow: inset 0 -8px 0 0 rgba(black, 0.2);
-    background: #6E64F0;
-    z-index: 1;
-  }
-  
-  &:focus {
-    outline: none;
-    
-    &:after {      
-      animation: bounce $interval * 2 infinite alternate;
-    }
-    
-    @keyframes bounce {
-      from {
-        transform: scale(2);
-        animation-timing-function: ease-in;
-      }
-      to {
-        transform: scale(0.8);
-        animation-timing-function: cubic-bezier(0, 0, 0, 1);
-      }
-    }
-    
-    @keyframes bounce-shadow {
-      from {
-        transform: scale(2.5, 2.6) translateY(-50%);
-        animation-timing-function: ease-in;
-      }
-      to {
-        transform: scale(0.5) translateY(0);
-        animation-timing-function: cubic-bezier(0, 0, 0, 1);
-      }
-    }
-    
-    &:before {
-      content: '';
-      position: absolute;
-      display: block;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: rgba(black, 0.05);
-      animation: bounce-shadow $interval * 2 infinite alternate;
-      z-index: -10;
-    }
-  }
-}
-
 .dog {
+  display: block;
   width: $dog-width;
   height: $dog-width;
   z-index: 1;
