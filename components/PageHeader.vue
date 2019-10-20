@@ -6,17 +6,30 @@
             <p style="font-size:22px;text-align:center;">
                 <slot name="left"></slot>
             </p>
-            <b-button 
-                tag="router-link" 
-                :to="{ path:  to }"
-                type="is-info"
-                icon-left="coffee"
-                size="is-medium"
-                class="has-text-centered"
-                style="border-radius:25px;"
-                v-if="button">
-                {{ buttonText }}
-            </b-button>
+            <div v-if="button">
+                <b-button 
+                    v-if="!href"
+                    tag="router-link"
+                    :to="{ path:  to }"
+                    type="is-info"
+                    icon-left="coffee"
+                    size="is-medium"
+                    class="has-text-centered"
+                    style="border-radius:25px;">
+                    {{ buttonText }}
+                </b-button>
+                <b-button 
+                    v-if="href"
+                    tag="a"
+                    :href="to"
+                    type="is-info"
+                    icon-left="coffee"
+                    size="is-medium"
+                    class="has-text-centered"
+                    style="border-radius:25px;">
+                    {{ buttonText }}
+                </b-button>
+            </div>
         </div>
         <div class="pageHeader__right column">
             <slot name="right"></slot>
@@ -37,9 +50,9 @@ export default {
             type: String,
             required: true,
         },
-        button: {
+        button:{
             type: Boolean,
-            required: false,
+            required: true,
             default: false
         },
         buttonText: {
@@ -47,8 +60,13 @@ export default {
             required: false,
             default: "Bize kahve ısmarla"
         },
+        href: {
+            type: Boolean,
+            required: true,
+            default: false
+        },
         to: {
-            type: Object,
+            type: String,
             required: false
         }
     },
@@ -60,7 +78,6 @@ export default {
         
     },
     created () {
-        
     },
     destroyed () {
         

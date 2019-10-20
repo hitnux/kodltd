@@ -12,7 +12,7 @@
         <template slot="end">
             <slot></slot>
             <b-navbar-dropdown label="Info">
-                <b-navbar-item href="#">
+                <b-navbar-item tag="router-link" :to="{ path: 'about' }">
                     About
                 </b-navbar-item>
                 <b-navbar-item href="#">
