@@ -52,9 +52,6 @@ export default {
   data () {
     return {
       url: "https://buefy.org",
-      url2: "https://buefy.org",
-      isConnected: false,
-      socketMessage: ''
     }
   },
   components: {
@@ -64,15 +61,9 @@ export default {
     Reviews
   },
   methods:{
-    Generate: function(event){
-      this.url=this.url2+"/?v="+Math.floor(Math.random() * 10);
-    }
   },
 
   created(){
-    /*socket.on("girisKontrol", (id) => {
-        $(location).attr('href', 'http://localhost:3000/gonderen/' + id);
-    });*/
   }
 }
 </script>

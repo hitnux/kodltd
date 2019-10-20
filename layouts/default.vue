@@ -27,12 +27,12 @@ export default {
         {
           title: 'Receiver',
           icon: 'lightbulb',
-          to: { name: 'receiver' } 
+          to: { path: 'receiver' } 
         },
         {
           title: 'Sender',
           icon: 'account',
-          to: { name: 'sender' }
+          to: { path: 'sender' }
         }
       ]
     }

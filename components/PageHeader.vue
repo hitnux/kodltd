@@ -7,9 +7,10 @@
                 <slot name="left"></slot>
             </p>
             <b-button 
+                tag="router-link" 
+                :to="{ path:  to }"
                 type="is-info"
                 icon-left="coffee"
-                v-on:click="Generate"
                 size="is-medium"
                 class="has-text-centered"
                 style="border-radius:25px;"
@@ -45,11 +46,14 @@ export default {
             type: String,
             required: false,
             default: "Bize kahve ısmarla"
+        },
+        to: {
+            type: Object,
+            required: false
         }
     },
     data () {
         return {
-        
         }
     },
     methods:{
