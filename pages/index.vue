@@ -25,17 +25,14 @@
         <img src="~/assets/video.png" style="height:315px;width:560px;margin: auto;">
       </figure>
   </div>
-  <Service :src="require('~/assets/video.png')">
-      <h1>Gizlilik dostu</h1>
-İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.
+  <Service title="Gizlilik dostu" :src="require('~/assets/video.png')">
+    İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.
   </Service>
-  <Service :src="require('~/assets/video.png')" :reverse="true">
-      <h1>Gizlilik dostu</h1>
-İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.
+  <Service title="Gizlilik dostu" :src="require('~/assets/video.png')" :reverse="true">
+    İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.
   </Service>
-  <Service :src="require('~/assets/video.png')">
-      <h1>Gizlilik dostu</h1>
-İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.
+  <Service title="Gizlilik dostu" :src="require('~/assets/video.png')">
+    İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.
   </Service>
   <Reviews/>
 </div>

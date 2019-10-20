@@ -1,8 +1,9 @@
 <template>
 <Container>
     <div class="service columns" :class="{reverse: reverse}">
-        <div class="column">
-            <slot></slot>
+        <div class="column service__left">
+            <h1>{{ title }}</h1>
+            <p><slot></slot></p>
         </div>
         <div class="column">
             <img :src="src" />
@@ -27,6 +28,10 @@ export default {
             type: Boolean,
             required: false,
             default: false,
+        },
+        title: {
+            type: String,
+            required: true,
         }
     },
     data () {
@@ -51,5 +56,10 @@ export default {
 }
 .reverse{
     flex-direction: row-reverse;
+}
+.service__left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 </style>
