@@ -118,7 +118,7 @@ $easing: ease-in-out;
     height: 200%;
     border-radius: 50%;
     background: rgba(52, 73, 94, 1);
-    transform: translateX(-20%) translateY(-50%) scale(1.5);
+    transform: translateX(-25%) translateY(-50%) scale(1.5);
   }
   
   * {
