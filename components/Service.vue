@@ -6,7 +6,7 @@
             <p><slot></slot></p>
         </div>
         <div class="column">
-            <img :src="src" />
+            <img class="service__image" :src="src" />
         </div>
     </div>
 </Container>
@@ -53,6 +53,10 @@ export default {
 <style>
 .service{
     padding: var(--margin) 0px;
+}
+.service__image{
+    max-width: 650px;
+    max-height: 350px;
 }
 .reverse{
     flex-direction: row-reverse;
