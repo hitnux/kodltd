@@ -4,10 +4,11 @@
             <div class="card card-shadow">
                 <div class="card-content">
                     <p class="title">
-                    “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
+                        <Rate :rate="4.5"/>
+                        “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
                     </p>
                     <p class="subtitle">
-                    Jeff Atwood
+                        Jeff Atwood
                     </p>
                 </div>
             </div>
@@ -16,10 +17,11 @@
             <div class="card card-shadow">
                 <div class="card-content">
                     <p class="title">
-                    “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
+                        <Rate :rate="5"/>
+                        “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
                     </p>
                     <p class="subtitle">
-                    Jeff Atwood
+                        Jeff Atwood
                     </p>
                 </div>
             </div>
@@ -28,10 +30,11 @@
             <div class="card card-shadow">
                 <div class="card-content">
                     <p class="title">
-                    “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
+                        <Rate :rate="4.3"/>
+                        “There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors.”
                     </p>
                     <p class="subtitle">
-                    Jeff Atwood
+                        Jeff Atwood
                     </p>
                 </div>
             </div>
@@ -40,9 +43,11 @@
 </template>
 
 <script>
+import Rate from '~/components/Rate'
 export default {
     name: "Reviews",
     components: {
+        Rate
     },
     props: {
     },

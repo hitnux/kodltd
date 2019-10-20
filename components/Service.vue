@@ -26,6 +26,7 @@ export default {
         reverse: {
             type: Boolean,
             required: false,
+            default: false,
         }
     },
     data () {

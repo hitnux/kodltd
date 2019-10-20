@@ -1,19 +1,9 @@
 <template>
 <div>
   <section class="section">
-    <PageHeader>
-      <div slot="left" style="display:flex;flex-direction:column;align-items:center;">
-        <h1 style="text-align:center">Hamurabi <br>Projesi</h1>
-        <p style="font-size:22px;text-align:center;">Yapım Aşaması: <b>Pre-Alpha Sürümü</b> Version 0.1<br>Nuxt JS, Vue JS, CSS, JS</p>
-        <b-button 
-            type="is-info"
-            icon-left="coffee"
-            v-on:click="Generate"
-            size="is-medium"
-            class="has-text-centered"
-            style="border-radius:25px;">
-            Bize kahve ısmarla
-        </b-button>
+    <PageHeader title="KodLTD" :button=true>
+      <div slot="left">
+        Yapım Aşaması: <b>Pre-Alpha Sürümü</b> Version 0.1<br>Nuxt JS, Vue JS, CSS, JS
       </div>
       <div id="QrLayout" slot="right">
         <qr-code :text=url :size="250" color="#34495e" bg-color="white" id="qrcode"></qr-code>
@@ -39,12 +29,15 @@
       <h1>Gizlilik dostu</h1>
 İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.
   </Service>
-  <Service :src="require('~/assets/video.png')" reverse="true">
+  <Service :src="require('~/assets/video.png')" :reverse="true">
       <h1>Gizlilik dostu</h1>
 İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.
   </Service>
-  <Reviews>
-  </Reviews>
+  <Service :src="require('~/assets/video.png')">
+      <h1>Gizlilik dostu</h1>
+İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.
+  </Service>
+  <Reviews/>
 </div>
 </template>
 

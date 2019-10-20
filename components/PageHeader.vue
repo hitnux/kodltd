@@ -2,7 +2,20 @@
 <Container>
   <div class="pageHeader columns">
         <div class="pageHeader__left column">
-            <slot name="left"></slot>
+            <h1 style="text-align:center">{{title}}</h1>
+            <p style="font-size:22px;text-align:center;">
+                <slot name="left"></slot>
+            </p>
+            <b-button 
+                type="is-info"
+                icon-left="coffee"
+                v-on:click="Generate"
+                size="is-medium"
+                class="has-text-centered"
+                style="border-radius:25px;"
+                v-if="button">
+                {{ buttonText }}
+            </b-button>
         </div>
         <div class="pageHeader__right column">
             <slot name="right"></slot>
@@ -17,6 +30,22 @@ export default {
     name: "PageHeader",
     components: {
         Container
+    },
+    props: {
+        title: {
+            type: String,
+            required: true,
+        },
+        button: {
+            type: Boolean,
+            required: false,
+            default: false
+        },
+        buttonText: {
+            type: String,
+            required: false,
+            default: "Bize kahve ısmarla"
+        }
     },
     data () {
         return {
@@ -39,5 +68,10 @@ export default {
       min-height: 70vh;
       align-items: center;
       justify-content: space-between;
+  }
+  .pageHeader__left{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
   }
 </style>
