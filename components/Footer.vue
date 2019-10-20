@@ -66,10 +66,12 @@ export default {
 }
 .footer__rows{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 .footer__row{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 .footer__menu li{
