@@ -5,12 +5,7 @@
             Sender Page
             </div>
             <div slot="right">
-                <img :src="require('~/assets/video.png')" />
-            </div>
-        </PageHeader>
-        <Container>
-            <h1>{{ $route.params.id }}</h1>
-            <b-upload v-model="dropFiles"
+                <b-upload v-model="dropFiles"
                 multiple
                 drag-drop
                 style="margin:auto">
@@ -26,6 +21,10 @@
                     </div>
                 </section>
             </b-upload>
+            </div>
+        </PageHeader>
+        <Container>
+            <h1>{{ $route.params.id }}</h1>
         </Container>
     </div>
 </template>

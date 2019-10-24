@@ -1,7 +1,7 @@
 <template>
 <div>
   <section class="section">
-    <PageHeader title="KodLTD" :button=true to="sender">
+    <PageHeader title="KodLTD" :button=true to="about">
       <div slot="left">
         Yapım Aşaması: <b>Pre-Alpha Sürümü</b> Version 0.1<br>Nuxt JS, Vue JS, CSS, JS
       </div>
