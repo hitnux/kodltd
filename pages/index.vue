@@ -29,7 +29,8 @@
     <Service
       title="Gizlilik dostu"
       :src="require('~/assets/video.png')"
-    >İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.</Service>
+    >İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.
+    <Lab/></Service>
     <Service
       title="Gizlilik dostu"
       :src="require('~/assets/video.png')"
@@ -61,7 +62,7 @@ export default {
     Container,
     PageHeader,
     Service,
-    Reviews
+    Reviews,
   },
   methods: {},
 
