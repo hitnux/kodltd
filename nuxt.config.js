@@ -29,7 +29,7 @@ module.exports = {
   */
   plugins: [
     '~/plugins/qrcode',
-    '~/plugins/soket'
+    '~/plugins/socket.io'
   ],
   /*
   ** Nuxt.js dev-modules
