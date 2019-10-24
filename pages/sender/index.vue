@@ -1,6 +1,6 @@
 <template>
 <section class="section">
-    <PageHeader title="Upss..">
+    <PageHeader title="Upsss...">
         <div slot="left">
             Bir hata oluştu! Lütfen karakod okutma işleminin başarıyla tamamlandığından emin olun!
         </div>
@@ -12,12 +12,10 @@
 </template>
 <script>
 import PageHeader from '~/components/PageHeader'
-import Container from '~/components/Container'
 
 export default {
     components: {
-        PageHeader,
-        Container
+        PageHeader
     }
 }
 </script>
