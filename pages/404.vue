@@ -112,10 +112,33 @@
         </div>
     </div>
     <div class="column" style="margin: 42px 0;">
-        We couldn't find what you were looking for.
+        <h3 align="center">We couldn't find what you were looking for.</h3><br> 
+        <p>
 Unfortunately the page you were looking for could not be found. It may be temporarily unavailable, moved or no longer exist.
 
 Check the URL you entered for any mistakes and try again. Alternatively, search for whatever is missing or take a look around the rest of our site.
+    </p><br>
+        <b-button 
+            type="is-info"
+            class="has-text-centered"
+            tag="router-link"
+            :to="{ name: 'index'}">
+            Ana Sayfa
+        </b-button>
+        <b-button 
+            type="is-info"
+            class="has-text-centered"
+            tag="router-link"
+            :to="{ name: 'index'}">
+            Ana Sayfa
+        </b-button>
+        <b-button 
+            type="is-info"
+            class="has-text-centered"
+            tag="router-link"
+            :to="{ name: 'index'}">
+            Ana Sayfa
+        </b-button>
     </div>
     </div>
 </Container>
