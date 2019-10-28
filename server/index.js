@@ -37,17 +37,12 @@ async function start() {
   } else {
     await nuxt.ready()
   }
-
+    
   // Give nuxt middleware to express
-  app.use(nuxt.render)
-
-  //====== Socket.io sever portu
-  http.listen(3001, () => {
-    console.log("socket.io başlatıldı. http://localhost:3001");
-  });
+  app.use(nuxt.render)  
 
   // Listen the server
-  app.listen(port, host)
+  http.listen(port, host)
   consola.ready({
     message: `Server listening on http://${host}:${port}`,
     badge: true
