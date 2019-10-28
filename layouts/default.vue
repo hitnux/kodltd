@@ -44,8 +44,6 @@ export default {
       }else{
         this.showNavbar=true;
       }
-      
-      console.log(this.showNavbar);
     }
   },
   created () {
