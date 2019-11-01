@@ -10,7 +10,7 @@
       </div>
     </PageHeader>
     <Container>
-      <p>Link: <a id="link" target="_blank" href=""></a></p>
+      <p>Link: <a id="link" target="_blank" href="">TEST</a></p>
       <div class="columns">
         <!--<b-button 
  dae4d8f89dd3023e8216135eb87beeb72227f4b7
@@ -68,12 +68,17 @@ export default {
   },
   methods: {},
   mounted() {
+   
+  },
+  created() {   
     const socket = io;
+    console.log(socket);
     let zaman = new Date().getTime();
     let roomID = "";
-
+    $("#link").text("http://localhost:3000/room/" + roomID);
+    $("#link").attr("href", "http://localhost:3000/room/" + roomID);
     socket.on("connect", () => {
-        console.log(socket.id);            
+        console.log("id:"+socket.id);            
         roomID = socket.id + "+" + zaman;
         $("#link").text("http://localhost:3000/room/" + roomID);
         $("#link").attr("href", "http://localhost:3000/room/" + roomID);
@@ -85,8 +90,6 @@ export default {
         $(location).attr('href', 'http://localhost:3000/room/' + roomID);
         socket.emit("sayacBaslat", roomID, 30);
     });
-  },
-  created() {    
   }
 };
 </script>
