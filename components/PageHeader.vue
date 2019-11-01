@@ -62,7 +62,7 @@ export default {
         },
         href: {
             type: Boolean,
-            required: true,
+            required: false,
             default: false
         },
         to: {

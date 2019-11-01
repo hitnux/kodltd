@@ -10,6 +10,7 @@
       </div>
     </PageHeader>
     <Container>
+      <p>Link: <a id="link" target="_blank" href=""></a></p>
       <div class="columns">
         <!--<b-button 
  dae4d8f89dd3023e8216135eb87beeb72227f4b7
@@ -30,7 +31,7 @@
       title="Gizlilik dostu"
       :src="require('~/assets/video.png')"
     >İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.
-    <Lab/></Service>
+    </Service>
     <Service
       title="Gizlilik dostu"
       :src="require('~/assets/video.png')"
@@ -49,7 +50,8 @@ import Container from "~/components/Container";
 import PageHeader from "~/components/PageHeader";
 import Service from "~/components/Service";
 import Reviews from "~/components/Reviews";
-import socket from "~/plugins/socket.io";
+import io from "~/plugins/socket.io";
+import $ from "jquery";
 
 export default {
   name: "HomePage",
@@ -65,9 +67,26 @@ export default {
     Reviews,
   },
   methods: {},
+  mounted() {
+    const socket = io;
+    let zaman = new Date().getTime();
+    let roomID = "";
 
-  created() { 
-    console.log(socket.id);   
+    socket.on("connect", () => {
+        console.log(socket.id);            
+        roomID = socket.id + "+" + zaman;
+        $("#link").text("http://localhost:3000/room/" + roomID);
+        $("#link").attr("href", "http://localhost:3000/room/" + roomID);
+
+        socket.emit("odayaGir", socket.id + "+" + zaman)
+    });
+
+    socket.on("girisKontrol", (roomID) => {
+        $(location).attr('href', 'http://localhost:3000/room/' + roomID);
+        socket.emit("sayacBaslat", roomID, 30);
+    });
+  },
+  created() {    
   }
 };
 </script>

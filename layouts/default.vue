@@ -26,13 +26,11 @@ export default {
       items: [
         {
           title: 'Receiver',
-          icon: 'lightbulb',
           to: { path: 'receiver' } 
         },
         {
-          title: 'Sender',
-          icon: 'account',
-          to: { path: 'sender' }
+          title: 'Room',
+          to: { path: 'room' }
         }
       ]
     }
