@@ -77,10 +77,11 @@ export default {
     let roomID = "";
 
     roomID = socket.id + "+" + zaman;
+    socket.emit("odayaGir", roomID);
     this.url = "http://localhost:3000/room/" + roomID;
 
     socket.on("girisKontrol", roomID => {
-      this.$router.push("/room/"+roomID);
+      this.$router.push("/room/" + roomID);
       socket.emit("sayacBaslat", roomID, 30);
     });
   }

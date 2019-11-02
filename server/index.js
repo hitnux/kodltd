@@ -56,8 +56,10 @@ io.on("connection", (socket) => {
       socket.join(roomID);
     } else if (io.sockets.adapter.rooms[roomID].sockets.bir == true) {
       io.to(ID).emit("sureDoldu")
+    } else if (kisiSayisi == 2) {
+      io.to(ID).emit("odaDolu")
     } else {
-      io.to(ID).emit("odaDolu", io.sockets.adapter.rooms[roomID])
+      console.error("bilinmeyen bir hata oldu")
     }
   });
 });
