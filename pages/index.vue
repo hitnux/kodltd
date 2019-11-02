@@ -12,10 +12,6 @@
         </div>
       </PageHeader>
       <Container>
-        <p>
-          Link:
-          <a id="link" target="_blank" href>TEST</a>
-        </p>
         <div class="columns">
           <!--<b-button 
                 type="is-info"
