@@ -23,7 +23,7 @@
 <script>
 import PageHeader from "~/components/PageHeader";
 import Container from "~/components/Container";
-import io from "~/plugins/socket.io";
+import socket from "~/plugins/socket.io";
 import $ from "jquery";
 import Swal from "sweetalert2";
 
@@ -33,7 +33,7 @@ export default {
     Container
   },
   created() {
-    let roomID = $route.params.id; // burası doğru mu?
+    let roomID = this.$route.params.id; // burası doğru mu?
 
     socket.on("connect", () => {
       socket.emit("odayaGir", roomID, socket.id);
