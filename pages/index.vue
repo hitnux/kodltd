@@ -77,7 +77,7 @@ export default {
 
     socket.on("girisKontrol", () => {
       this.$router.push("/room/" + this.roomID);
-      socket.emit("sayacBaslat", this.roomID, 300);
+      socket.emit("sayacBaslat", this.roomID, 30000);
     });
   }
 };

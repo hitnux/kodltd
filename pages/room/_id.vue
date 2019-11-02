@@ -1,36 +1,33 @@
 <template>
   <div>
-    <PageHeader title="Sender">
-      <div slot="left">Sender Page</div>
-      <div slot="right">
-        <ul>
-          <li v-for="(msg,ind) in oldMessages" :key="ind">{{msg}}</li>
-        </ul>
-        <b-field>
-            <b-input placeholder="Mesaj" v-model="message"></b-input>
+    <Container id="cont">
+      <MessageBox @change="scrollBox">
+        <MessageCard v-for="(msg,ind) in oldMessages" :key="ind">{{msg}}</MessageCard>
+      </MessageBox>
+      <div style="display:flex;">
+        <b-field style="width:100%">
+            <b-input placeholder="Mesaj" v-model="message" @keyup.native.enter="submitMessage"></b-input>
         </b-field>
         <b-button tag="input"
-                native-type="submit"
-                value="Submit input"
-                @click="submitMessage" />
+          native-type="submit"
+          value="Submit input"
+          @click="submitMessage" />
       </div>
-    </PageHeader>
-    <Container>
-      <h1>{{ $route.params.id }}</h1>
     </Container>
   </div>
 </template>
 <script>
-import PageHeader from "~/components/PageHeader";
 import Container from "~/components/Container";
 import socket from "~/plugins/socket.io";
-import $ from "jquery";
 import Swal from "sweetalert2";
+import MessageBox from "~/components/MessageBox";
+import MessageCard from "~/components/MessageCard";
 
 export default {
   components: {
-    PageHeader,
-    Container
+    Container,
+    MessageBox,
+    MessageCard
   },
   data() {
     return {
@@ -87,9 +84,17 @@ export default {
     submitMessage: function (event) {
       socket.emit("mesaj", this.roomID, this.message);
       this.message="";
-
       return false;
+    },
+    scrollBox: function(e){
+      let elmnt = document.getElementsByClassName("MessageBox")[0];
+      elmnt.scrollTop = 9999999;
     }
   }
 };
 </script>
+<style >
+#cont{
+  margin: 50px auto;
+}
+</style>
