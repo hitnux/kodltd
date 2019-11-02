@@ -23,7 +23,7 @@
 <script>
 import PageHeader from "~/components/PageHeader";
 import Container from "~/components/Container";
-import io from "~/plugins/socket.io";
+import socket from "~/plugins/socket.io";
 import $ from "jquery";
 import Swal from "sweetalert2";
 
@@ -33,12 +33,10 @@ export default {
     Container
   },
   created() {
-    let roomID = $route.params.id; // burası doğru mu?
+    let roomID = this.$route.params.id;
 
-    socket.on("connect", () => {
-      socket.emit("odayaGir", roomID, socket.id);
-      socket.emit("girisKontrol", roomID);
-    });
+    socket.emit("odayaGir", roomID, socket.id);
+    socket.emit("girisKontrol", roomID);
 
     socket.on("sayac", deger => {
       $("#sayac").text(deger);
@@ -58,8 +56,7 @@ export default {
       console.log(msj);
     });
 
-    socket.on("odaDolu", deger => {
-      console.log(deger);
+    socket.on("odaDolu", () => {
       Swal.fire({
         type: "error",
         title: "HATA",
@@ -67,9 +64,9 @@ export default {
         confirmButtonText: "Ana Sayfaya Git"
       }).then(result => {
         if (result.value) {
-          $(location).attr("href", "http://localhost:3000/"); // düzenle
+          this.$router.push("/");
         } else {
-          $(location).attr("href", "http://localhost:3000/"); // düzenle
+          this.$router.push("/");
         }
       });
     });
@@ -82,9 +79,9 @@ export default {
         confirmButtonText: "Ana Sayfaya Git"
       }).then(result => {
         if (result.value) {
-          $(location).attr("href", "http://localhost:3000/"); // düzenle
+          this.$router.push("/");
         } else {
-          $(location).attr("href", "http://localhost:3000/"); // düzenle
+          this.$router.push("/");
         }
       });
     });
