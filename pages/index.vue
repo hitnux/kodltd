@@ -56,7 +56,8 @@ export default {
   name: "HomePage",
   data() {
     return {
-      url: "https://buefy.org" // linki değiştirmeyi unutma
+      url: "",
+      roomID: "",
     };
   },
   components: {
@@ -69,15 +70,14 @@ export default {
   mounted() {},
   created() {
     let zaman = new Date().getTime();
-    let roomID = "";
 
-    roomID = socket.id + "+" + zaman;
-    socket.emit("odayaGir", roomID);
-    this.url = "http://localhost:3000/room/" + roomID;
+    this.roomID = socket.id + "+" + zaman;
+    socket.emit("odayaGir", this.roomID);
+    this.url = "http://localhost:3000/room/" + this.roomID;
 
-    socket.on("girisKontrol", roomID => {
-      this.$router.push("/room/" + roomID);
-      socket.emit("sayacBaslat", roomID, 30);
+    socket.on("girisKontrol", () => {
+      this.$router.push("/room/" + this.roomID);
+      socket.emit("sayacBaslat", this.roomID, 300);
     });
   }
 };

@@ -3,16 +3,16 @@
     <PageHeader title="Sender">
       <div slot="left">Sender Page</div>
       <div slot="right">
-        <b-upload v-model="dropFiles" multiple drag-drop style="margin:auto">
-          <section class="section">
-            <div class="content has-text-centered">
-              <p>
-                <b-icon icon="upload" size="is-large"></b-icon>
-              </p>
-              <p>Drop your files here or click to upload</p>
-            </div>
-          </section>
-        </b-upload>
+        <ul>
+          <li v-for="(msg,ind) in oldMessages" :key="ind">{{msg}}</li>
+        </ul>
+        <b-field>
+            <b-input placeholder="Mesaj" v-model="message"></b-input>
+        </b-field>
+        <b-button tag="input"
+                native-type="submit"
+                value="Submit input"
+                @click="submitMessage" />
       </div>
     </PageHeader>
     <Container>
@@ -32,27 +32,24 @@ export default {
     PageHeader,
     Container
   },
+  data() {
+    return {
+      roomID: this.$route.params.id,
+      message: "",
+      oldMessages: [],
+    };
+  },
   created() {
-    let roomID = this.$route.params.id;
 
-    socket.emit("odayaGir", roomID, socket.id);
-    socket.emit("girisKontrol", roomID);
+    socket.emit("odayaGir", this.roomID, socket.id);
+    socket.emit("girisKontrol", this.roomID);
 
     socket.on("sayac", deger => {
       $("#sayac").text(deger);
     });
 
-    $("form").submit(function(e) {
-      e.preventDefault();
-
-      socket.emit("mesaj", roomID, $("#m").val());
-      $("#m").val("");
-
-      return false;
-    });
-
     socket.on("mesaj", msj => {
-      $("#messages").append($("<li>").text(msj));
+      this.oldMessages.push(msj);
       console.log(msj);
     });
 
@@ -85,6 +82,14 @@ export default {
         }
       });
     });
+  },
+  methods: {
+    submitMessage: function (event) {
+      socket.emit("mesaj", this.roomID, this.message);
+      this.message="";
+
+      return false;
+    }
   }
 };
 </script>
