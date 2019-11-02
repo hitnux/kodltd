@@ -52,7 +52,7 @@ io.on("connection", (socket) => {
       kisiSayisi = io.sockets.adapter.rooms[roomID].length;
     }
 
-    if (kisiSayisi < 3) {
+    if (kisiSayisi < 2) {
       socket.join(roomID);
     } else if (io.sockets.adapter.rooms[roomID].sockets.bir == true) {
       io.to(ID).emit("sureDoldu")
