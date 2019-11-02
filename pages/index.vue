@@ -77,10 +77,10 @@ export default {
     let roomID = "";
 
     roomID = socket.id + "+" + zaman;
-    $("#link").attr("href", "http://localhost:3000/room/" + roomID); // jquery çalışmıyo
+    this.url = "http://localhost:3000/room/" + roomID;
 
     socket.on("girisKontrol", roomID => {
-      $(location).attr("href", "http://localhost:3000/room/" + roomID); // burası düzenlenecek nuxt.js göre sayfa yönlendirme olacak
+      redirect("/room/" + roomID);
       socket.emit("sayacBaslat", roomID, 30);
     });
   }
