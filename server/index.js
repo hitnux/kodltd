@@ -12,62 +12,53 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
 io.on("connection", (socket) => {
-  console.log("biri girdi");
-  // socket.on("giris", (aliciID, gonderenID) => {
-    //     io.to(aliciID).emit("giris", gonderenID);
-    // });
-
-    // socket.on("girisKontrol", (gonderenID, aliciID) => {
-    //     io.to(gonderenID).emit("girisKontrol", gonderenID, aliciID);
-    // });
-
-    socket.on('disconnect', function () {
-      socket.leaveAll();
+  socket.on('disconnect', function () {
+    socket.leaveAll();
   });
 
   socket.on("mesaj", (roomID, mesaj) => {
-      io.sockets.in(roomID).emit("mesaj", mesaj);
+    io.sockets.in(roomID).emit("mesaj", mesaj);
   });
 
   socket.on("sayacBaslat", (roomID, sure) => {
-      setTimeout(() => {
-          let sayac = sure;
+    setTimeout(() => {
+      let sayac = sure;
 
-          let tekrar = setInterval(() => {
-              sayac--;
-              io.sockets.in(roomID).emit("sayac", sayac);
+      let tekrar = setInterval(() => {
+        sayac--;
+        io.sockets.in(roomID).emit("sayac", sayac);
 
-              if (sayac == 0) {
-                  clearInterval(tekrar);
-                  io.sockets.in(roomID).emit("sureDoldu");
-                  
-                  io.sockets.adapter.rooms[roomID].sockets = {
-                      bir: true,
-                      iki: true
-                  }
-              }
-          }, 1000)
-      }, 1)
+        if (sayac == 0) {
+          clearInterval(tekrar);
+          io.sockets.in(roomID).emit("sureDoldu");
+
+          io.sockets.adapter.rooms[roomID].sockets = {
+            bir: true,
+            iki: true
+          }
+        }
+      }, 1000)
+    }, 1)
   });
 
   socket.on("girisKontrol", (roomID) => {
-      io.sockets.in(roomID).emit("girisKontrol", roomID);
-      let kisiSayisi = io.sockets.adapter.rooms[roomID].length; // roomID odasındaki kişi sayısı
+    io.sockets.in(roomID).emit("girisKontrol", roomID);
+    let kisiSayisi = io.sockets.adapter.rooms[roomID].length; // roomID odasındaki kişi sayısı
   });
 
   socket.on("odayaGir", (roomID, ID) => {
-      let kisiSayisi = 0;
-      if (io.sockets.adapter.rooms[roomID] != null) {
-          kisiSayisi = io.sockets.adapter.rooms[roomID].length;
-      }
+    let kisiSayisi = 0;
+    if (io.sockets.adapter.rooms[roomID] != null) {
+      kisiSayisi = io.sockets.adapter.rooms[roomID].length;
+    }
 
-      if (kisiSayisi < 2) {
-          socket.join(roomID);
-      } else if (io.sockets.adapter.rooms[roomID].sockets.bir == true) {
-          io.to(ID).emit("sureDoldu")
-      } else {
-          io.to(ID).emit("odaDolu", io.sockets.adapter.rooms[roomID])
-      }
+    if (kisiSayisi < 2) {
+      socket.join(roomID);
+    } else if (io.sockets.adapter.rooms[roomID].sockets.bir == true) {
+      io.to(ID).emit("sureDoldu")
+    } else {
+      io.to(ID).emit("odaDolu", io.sockets.adapter.rooms[roomID])
+    }
   });
 });
 //========= Socket.io Bitiş ===========//
@@ -93,9 +84,9 @@ async function start() {
   } else {
     await nuxt.ready()
   }
-    
+
   // Give nuxt middleware to express
-  app.use(nuxt.render)  
+  app.use(nuxt.render)
 
   // Listen the server
   http.listen(port, host)

@@ -1,18 +1,23 @@
 <template>
-<div>
-  <section class="section">
-    <PageHeader title="KodLTD" :button=true to="about">
-      <div slot="left">
-        Yapım Aşaması: <b>Pre-Alpha Sürümü</b> Version 0.1<br>Nuxt JS, Vue JS, CSS, JS
-      </div>
-      <div id="QrLayout" slot="right">
-        <qr-code :text=url :size="250" color="#34495e" bg-color="white" id="qrcode"></qr-code>
-      </div>
-    </PageHeader>
-    <Container>
-      <p>Link: <a id="link" target="_blank" href="">TEST</a></p>
-      <div class="columns">
-        <!--<b-button 
+  <div>
+    <section class="section">
+      <PageHeader title="KodLTD" :button="true" to="about">
+        <div slot="left">
+          Yapım Aşaması:
+          <b>Pre-Alpha Sürümü</b> Version 0.1
+          <br />Nuxt JS, Vue JS, CSS, JS
+        </div>
+        <div id="QrLayout" slot="right">
+          <qr-code :text="url" :size="250" color="#34495e" bg-color="white" id="qrcode"></qr-code>
+        </div>
+      </PageHeader>
+      <Container>
+        <p>
+          Link:
+          <a id="link" target="_blank" href>TEST</a>
+        </p>
+        <div class="columns">
+          <!--<b-button 
  dae4d8f89dd3023e8216135eb87beeb72227f4b7
                 type="is-info"
                 class="has-text-centered"
@@ -30,8 +35,7 @@
     <Service
       title="Gizlilik dostu"
       :src="require('~/assets/video.png')"
-    >İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.
-    </Service>
+    >İnsanların gizliliğinin temel bir hak olduğuna inanan sağlam bir şirketiz. Faaliyetlerinizi veya etkinliklerinizi izlemiyoruz.</Service>
     <Service
       title="Gizlilik dostu"
       :src="require('~/assets/video.png')"
@@ -50,45 +54,34 @@ import Container from "~/components/Container";
 import PageHeader from "~/components/PageHeader";
 import Service from "~/components/Service";
 import Reviews from "~/components/Reviews";
-import io from "~/plugins/socket.io";
+import socket from "~/plugins/socket.io";
 import $ from "jquery";
 
 export default {
   name: "HomePage",
   data() {
     return {
-      url: "https://buefy.org"
+      url: "https://buefy.org" // linki değiştirmeyi unutma
     };
   },
   components: {
     Container,
     PageHeader,
     Service,
-    Reviews,
+    Reviews
   },
   methods: {},
-  mounted() {
-   
-  },
-  created() {   
-    const socket = io;
-    console.log(socket);
+  mounted() {},
+  created() {
     let zaman = new Date().getTime();
     let roomID = "";
-    $("#link").text("http://localhost:3000/room/" + roomID);
-    $("#link").attr("href", "http://localhost:3000/room/" + roomID);
-    socket.on("connect", () => {
-        console.log("id:"+socket.id);            
-        roomID = socket.id + "+" + zaman;
-        $("#link").text("http://localhost:3000/room/" + roomID);
-        $("#link").attr("href", "http://localhost:3000/room/" + roomID);
 
-        socket.emit("odayaGir", socket.id + "+" + zaman)
-    });
+    roomID = socket.id + "+" + zaman;
+    $("#link").attr("href", "http://localhost:3000/room/" + roomID); // jquery çalışmıyo
 
-    socket.on("girisKontrol", (roomID) => {
-        $(location).attr('href', 'http://localhost:3000/room/' + roomID);
-        socket.emit("sayacBaslat", roomID, 30);
+    socket.on("girisKontrol", roomID => {
+      $(location).attr("href", "http://localhost:3000/room/" + roomID); // burası düzenlenecek nuxt.js göre sayfa yönlendirme olacak
+      socket.emit("sayacBaslat", roomID, 30);
     });
   }
 };
