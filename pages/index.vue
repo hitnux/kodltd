@@ -8,7 +8,7 @@
           <br />Nuxt JS, Vue JS, CSS, JS
         </div>
         <div id="QrLayout" slot="right">
-          <qr-code :text="url" :size="250" color="#34495e" bg-color="white" id="qrcode"></qr-code>
+          <a :href="url"><qr-code :text="url" :size="250" color="#34495e" bg-color="white" id="qrcode"></qr-code></a>
         </div>
       </PageHeader>
       <Container>
