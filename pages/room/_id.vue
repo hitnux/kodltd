@@ -34,6 +34,7 @@ export default {
       roomID: this.$route.params.id,
       message: "",
       oldMessages: [],
+      sayac: 0,
     };
   },
   created() {
@@ -42,7 +43,8 @@ export default {
     socket.emit("girisKontrol", this.roomID);
 
     socket.on("sayac", deger => {
-      $("#sayac").text(deger);
+      this.sayac=deger;
+      console.log(this.sayac);
     });
 
     socket.on("mesaj", msj => {

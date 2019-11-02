@@ -40,14 +40,14 @@ io.on("connection", (socket) => {
       }, 1000)
     }, 1)
   });
-
+  let kisiSayisi;
   socket.on("girisKontrol", (roomID) => {
     io.sockets.in(roomID).emit("girisKontrol", roomID);
-    let kisiSayisi = io.sockets.adapter.rooms[roomID].length; // roomID odasındaki kişi sayısı
+    kisiSayisi = io.sockets.adapter.rooms[roomID].length; // roomID odasındaki kişi sayısı
   });
 
   socket.on("odayaGir", (roomID, ID) => {
-    let kisiSayisi = 0;
+    kisiSayisi = 0;
     if (io.sockets.adapter.rooms[roomID] != null) {
       kisiSayisi = io.sockets.adapter.rooms[roomID].length;
     }
