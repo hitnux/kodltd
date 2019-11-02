@@ -69,9 +69,7 @@ export default {
   methods: {},
   mounted() {},
   created() {
-    let zaman = new Date().getTime();
-
-    this.roomID = socket.id + "+" + zaman;
+    this.roomID = socket.id + "+" + new Date().getTime();;
     socket.emit("odayaGir", this.roomID);
     this.url = "http://localhost:3000/room/" + this.roomID;
 
