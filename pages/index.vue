@@ -18,7 +18,6 @@
         </p>
         <div class="columns">
           <!--<b-button 
- dae4d8f89dd3023e8216135eb87beeb72227f4b7
                 type="is-info"
                 class="has-text-centered"
                 tag="router-link"
