@@ -41,7 +41,8 @@ module.exports = {
   */
   plugins: [
     '~/plugins/qrcode',
-    '~/plugins/socket.io'
+    '~/plugins/socket.io',
+    '~/plugins/chat'
   ],
   /*
   ** Nuxt.js dev-modules
