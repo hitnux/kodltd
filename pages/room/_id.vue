@@ -82,12 +82,12 @@ export default {
       participants: [
         {
           id: 'user1',
-          name: 'Matteo',
+          name: 'Device',
           imageUrl: 'https://avatars3.githubusercontent.com/u/1915989?s=230&v=4'
         },
         {
           id: 'user2',
-          name: 'Support',
+          name: 'Device',
           imageUrl: 'https://avatars3.githubusercontent.com/u/37018832?s=200&v=4'
         }
       ], // the list of all the participant of the conversation. `name` is the user name, `id` is used to establish the author of a message, `imageUrl` is supposed to be the user avatar.
@@ -124,7 +124,7 @@ export default {
         }
       }, // specifies the color scheme for the component
       alwaysScrollToBottom: false, // when set to true always scrolls the chat to the bottom when new events are in (new message, user starts typing...)
-      messageStyling: true // enables *bold* /emph/ _underline_ and such (more info at github.com/mattezza/msgdown)
+      messageStyling: false // enables *bold* /emph/ _underline_ and such (more info at github.com/mattezza/msgdown)
 
     };
   },
@@ -141,6 +141,7 @@ export default {
     socket.on("mesaj", msj => {
       this.oldMessages.push(msj);
       console.log(msj);
+      this.messageList.push({ type: 'text', author: `me`, data: { text: msj } });
     });
 
     socket.on("odaDolu", () => {
@@ -185,15 +186,18 @@ export default {
     },
 
 
-    sendMessage (text) {
+    sendMessage: function (text) {
+      alert("messa");
       if (text.length > 0) {
         this.newMessagesCount = this.isChatOpen ? this.newMessagesCount : this.newMessagesCount + 1
         this.onMessageWasSent({ author: 'support', type: 'text', data: { text } })
+        
       }
     },
     onMessageWasSent (message) {
       // called when the user sends a message
       this.messageList = [ ...this.messageList, message ]
+      socket.emit("mesaj", this.roomID, message["data"]["text"]);
     },
     openChat () {
       // called when the user clicks on the fab button to open the chat
@@ -211,11 +215,6 @@ export default {
     handleOnType () {
       console.log('Emit typing event')
     },
-    editMessage(message){
-      const m = this.messageList.find(m=>m.id === message.id);
-      m.isEdited = true;
-      m.data.text = message.data.text;
-    }
 
 
 
@@ -225,5 +224,11 @@ export default {
 <style >
 #cont{
   margin: 50px auto;
+}
+.sc-launcher{
+  display: none;
+}
+.sc-chat-window{
+  bottom: 25px !important;
 }
 </style>
