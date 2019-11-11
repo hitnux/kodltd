@@ -16,8 +16,9 @@ io.on("connection", (socket) => {
     socket.leaveAll();
   });
 
-  socket.on("mesaj", (roomID, mesaj) => {
-    io.sockets.in(roomID).emit("mesaj", mesaj);
+  socket.on("mesajGonder", (roomID, mesaj, ID) => {
+    socket.broadcast.to(roomID).emit("mesajAl", mesaj, ID); // Diğer kişiler
+    io.sockets.to(ID).emit("mesaj", mesaj); // Bu kişi
   });
 
   socket.on("sayacBaslat", (roomID, sure) => {

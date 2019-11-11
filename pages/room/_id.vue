@@ -80,21 +80,15 @@ export default {
         },
       },
       participants: [
-        {
-          id: 'user1',
-          name: 'Device',
-          imageUrl: 'https://avatars3.githubusercontent.com/u/1915989?s=230&v=4'
-        },
-        {
-          id: 'user2',
-          name: 'Device',
-          imageUrl: 'https://avatars3.githubusercontent.com/u/37018832?s=200&v=4'
-        }
+        // {
+        //   id: 'user1',
+        //   name: 'Device',
+        //   imageUrl: 'https://avatars3.githubusercontent.com/u/1915989?s=230&v=4'
+        // }
       ], // the list of all the participant of the conversation. `name` is the user name, `id` is used to establish the author of a message, `imageUrl` is supposed to be the user avatar.
       titleImageUrl: 'https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png',
       messageList: [
           { type: 'text', author: `me`, data: { text: `Say yes!` } },
-          { type: 'text', author: `user1`, data: { text: `No.` } }
       ], // the list of the messages to show, can be paginated and adjusted dynamically
       newMessagesCount: 0,
       isChatOpen: true, // to determine whether the chat window should be open or closed
@@ -138,10 +132,16 @@ export default {
       console.log(this.sayac);
     });
 
-    socket.on("mesaj", msj => {
+    socket.on("mesajAl", (msj, ID) => { // Diğer kişilerin mesaj kısmı
       this.oldMessages.push(msj);
-      console.log(msj);
-      this.messageList.push({ type: 'text', author: `me`, data: { text: msj } });
+      console.log("Diğer: "+msj);
+      this.messageList.push({ type: 'text', author: ID, data: { text: msj } });
+    });
+
+    socket.on("mesaj", msj => { // Bu kişinin mesaj kısmı
+      this.oldMessages.push(msj);
+      console.log("Ben: "+msj);
+      this.messageList.push({ type: 'text', author: 'me', data: { text: msj } });
     });
 
     socket.on("odaDolu", () => {
@@ -196,8 +196,7 @@ export default {
     },
     onMessageWasSent (message) {
       // called when the user sends a message
-      this.messageList = [ ...this.messageList, message ]
-      socket.emit("mesaj", this.roomID, message["data"]["text"]);
+      socket.emit("mesajGonder", this.roomID, message["data"]["text"], socket.id);
     },
     openChat () {
       // called when the user clicks on the fab button to open the chat
